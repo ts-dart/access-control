@@ -6,17 +6,13 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
-  /**
-   * Método principal.
-   */
   public static void main(String[] args) {
-    // ESCREVA SEU CÓDIGO AQUI
     Locale.setDefault(Locale.US);
 
     Scanner scanner = new Scanner(System.in);
     ArrayList<Short> ages = new ArrayList<>();
     short age = 0;
-    short respCode = 0;
+    byte respCode = 0;
 
     do {
       System.out.println("Entre com o número correspondente à opção desejada:");
@@ -26,7 +22,7 @@ public class Principal {
 
       if (respCode == 1) {
         System.out.println("Entre com a sua idade:");
-        age = scanner.nextByte();
+        age = scanner.nextShort();
         ages.add(age);
 
         if (age < 18) {
@@ -36,7 +32,7 @@ public class Principal {
         } else {
           System.out.println("Pessoa adulta a partir de 50, catraca liberada!");
         }
-      } else {
+      } else if (respCode != 2) {
         System.out.println("Entre com uma opção válida!");
       }
     } while (respCode != 2);
@@ -46,9 +42,9 @@ public class Principal {
   }
 
   static void genReport(ArrayList<Short> ages) {
-    int numberPeopleLess18 = doQuantitativeAnalysis(1, ages);
-    int adultPeople = doQuantitativeAnalysis(2, ages);
-    int numberPeopleMore50 = doQuantitativeAnalysis(3, ages);
+    short numberPeopleLess18 = doQuantitativeAnalysis(1, ages);
+    short adultPeople = doQuantitativeAnalysis(2, ages);
+    short numberPeopleMore50 = doQuantitativeAnalysis(3, ages);
     float numberPeopleLess18p = doPercentageAnalysis(1, ages);
     float adultPeoplep = doPercentageAnalysis(2, ages);
     float numberPeopleMore50p = doPercentageAnalysis(3, ages);
@@ -62,41 +58,20 @@ public class Principal {
     System.out.println(numberPeopleMore50);
     System.out.println("\n----- Percentual -----");
     System.out.print("menores: ");
-    System.out.println(numberPeopleLess18p);
+    System.out.print(numberPeopleLess18p);
+    System.out.println("%");
     System.out.print("adultas: ");
-    System.out.println(adultPeoplep);
+    System.out.print(adultPeoplep);
+    System.out.println("%");
     System.out.print("a partir de 50: ");
-    System.out.println(numberPeopleMore50p);
-
-    /* System.out.println(
-      "\n----- Quantidade -----\n" 
-      + "menores: " 
-      + numberPeopleLess18 
-      + "\n" 
-      + "adultas: "
-      + adultPeople 
-      + "\n" 
-      + "a partir de 50: " 
-      + numberPeopleMore50 
-      + "\n" 
-      + "\n----- Percentual -----\n" 
-      + "menores: " 
-      + numberPeopleLess18p 
-      + "\n" 
-      + "adultas: " 
-      + adultPeoplep
-      + "\n" 
-      + "a partir de 50: " 
-      + numberPeopleMore50p 
-      + "\n" 
-      + "\nTOTAL: " 
-      + ages.size()
-      + "%"
-    ); */
+    System.out.print(numberPeopleMore50p);
+    System.out.println("%");
+    System.out.print("\nTOTAL: ");
+    System.out.println(ages.size());
   }
 
-  static int doQuantitativeAnalysis(int param, ArrayList<Short> ages) {
-    int result = 0;
+  static short doQuantitativeAnalysis(int param, ArrayList<Short> ages) {
+    short result = 0;
 
     for (short age : ages) {
       if (param == 1 && age < 18) {
