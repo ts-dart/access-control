@@ -1,7 +1,8 @@
 package com.trybe.acc.java.controledeacesso;
 
-import java.util.Locale;
 import java.util.ArrayList;
+import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
@@ -37,6 +38,8 @@ public class Principal {
         } else {
           System.out.println("Pessoa adulta a partir de 50, catraca liberada!");
         }
+      } else {
+        System.out.println("Entre com uma opção válida!");
       }
     } while (respCode != 2);
 
@@ -45,7 +48,6 @@ public class Principal {
   }
 
   static void genReport(ArrayList<Short> ages) {
-    int totalNumberPeople = ages.size();
     int numberPeopleLess18 = doQuantitativeAnalysis(1, ages);
     int adultPeople = doQuantitativeAnalysis(2, ages);
     int numberPeopleMore50 = doQuantitativeAnalysis(3, ages);
@@ -76,6 +78,7 @@ public class Principal {
       + "\n" 
       + "\nTOTAL: " 
       + ages.size()
+      + "%"
     );
   }
 
@@ -98,6 +101,7 @@ public class Principal {
   }
 
   static float doPercentageAnalysis(int param, ArrayList<Short> ages) {
+    DecimalFormat decimalFormat = new DecimalFormat("#.##");
     ArrayList<Short> results = new ArrayList<>();
 
     for (short age : ages) {
@@ -112,10 +116,10 @@ public class Principal {
       }
     }
 
-    System.out.println("nao completo"+results+results.size());
-    System.out.println("completo"+ages+ages.size());
-    float percentage = (results.size() / ages.size()) * 100;
-    System.out.println(percentage);
-    return percentage;
+    float dividend = results.size();
+    float divider = ages.size();
+    float percentage = (dividend / divider) * 100;
+
+    return Float.parseFloat(decimalFormat.format(percentage));
   }
 }
