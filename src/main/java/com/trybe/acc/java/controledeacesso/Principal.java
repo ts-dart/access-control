@@ -1,7 +1,7 @@
 package com.trybe.acc.java.controledeacesso;
 
-import java.util.ArrayList;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class Principal {
     short respCode = 0;
 
     do {
-      System.out.println( 
+      System.out.println(
         "Entre com o número correspondente à opção desejada:\n" 
         + "1 - Acessar o estabelecimento\n" 
         + "2 - Finalizar sistema e mostrar relatório\n"
