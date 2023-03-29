@@ -1,8 +1,8 @@
 package com.trybe.acc.java.controledeacesso;
 
-import java.util.Scanner;
 import java.util.Locale;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Principal {
   /**
@@ -14,13 +14,14 @@ public class Principal {
 
     Scanner scanner = new Scanner(System.in);
     ArrayList<Short> ages = new ArrayList<>();
-    short age, respCode = 0;
+    short age = 0;
+    short respCode = 0;
 
     do {
-      System.out.println(
-        "Entre com o número correspondente à opção desejada:\n" +
-        "1 - Acessar o estabelecimento\n" +
-        "2 - Finalizar sistema e mostrar relatório\n"
+      System.out.println( 
+        "Entre com o número correspondente à opção desejada:\n" 
+        + "1 - Acessar o estabelecimento\n" 
+        + "2 - Finalizar sistema e mostrar relatório\n"
       );
       respCode = scanner.nextByte();
 
@@ -53,15 +54,28 @@ public class Principal {
     float numberPeopleMore50p = doPercentageAnalysis(3, ages);
 
     System.out.println(
-      "\n----- Quantidade -----\n" +
-      "menores: " + numberPeopleLess18 + "\n" +
-      "adultas: " + adultPeople + "\n" +
-      "a partir de 50: " + numberPeopleMore50 + "\n" +
-      "\n----- Percentual -----\n" +
-      "menores: " + numberPeopleLess18p + "\n" +
-      "adultas: " + adultPeoplep + "\n" +
-      "a partir de 50: " + numberPeopleMore50p + "\n" +
-      "\nTOTAL: " + ages.size()
+      "\n----- Quantidade -----\n" 
+      + "menores: " 
+      + numberPeopleLess18 
+      + "\n" 
+      + "adultas: "
+      + adultPeople 
+      + "\n" 
+      + "a partir de 50: " 
+      + numberPeopleMore50 
+      + "\n" 
+      + "\n----- Percentual -----\n" 
+      + "menores: " 
+      + numberPeopleLess18p 
+      + "\n" 
+      + "adultas: " 
+      + adultPeoplep
+      + "\n" 
+      + "a partir de 50: " 
+      + numberPeopleMore50p 
+      + "\n" 
+      + "\nTOTAL: " 
+      + ages.size()
     );
   }
 
@@ -69,9 +83,15 @@ public class Principal {
     int result = 0;
 
     for (short age : ages) {
-      if (param == 1 && age < 18) result += 1;
-      if (param == 2 && (age >= 18 && age < 50)) result += 1;
-      if (param == 3 && age >= 50)result += 1;
+      if (param == 1 && age < 18) {
+        result += 1;
+      }
+      if (param == 2 && (age >= 18 && age < 50)) {
+        result += 1;
+      }
+      if (param == 3 && age >= 50) {
+        result += 1;
+      }
     }
 
     return result;
@@ -81,12 +101,21 @@ public class Principal {
     ArrayList<Short> results = new ArrayList<>();
 
     for (short age : ages) {
-      if (param == 1 && age < 18) results.add(age);
-      if (param == 2 && (age >= 18 && age < 50)) results.add(age);
-      if (param == 3 && age >= 50) results.add(age);
+      if (param == 1 && age < 18) {
+        results.add(age);
+      }
+      if (param == 2 && (age >= 18 && age < 50)) {
+        results.add(age);
+      }
+      if (param == 3 && age >= 50) {
+        results.add(age);
+      }
     }
 
+    System.out.println("nao completo"+results+results.size());
+    System.out.println("completo"+ages+ages.size());
     float percentage = (results.size() / ages.size()) * 100;
+    System.out.println(percentage);
     return percentage;
   }
 }
