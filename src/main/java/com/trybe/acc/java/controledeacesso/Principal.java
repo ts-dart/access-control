@@ -20,7 +20,7 @@ public class Principal {
 
     do {
       System.out.println("Entre com o número correspondente à opção desejada:");
-      System.out.println("1 - Acessar o estabelecimento" );
+      System.out.println("1 - Acessar o estabelecimento");
       System.out.println("2 - Finalizar sistema e mostrar relatório");
       respCode = scanner.nextByte();
 
@@ -53,7 +53,22 @@ public class Principal {
     float adultPeoplep = doPercentageAnalysis(2, ages);
     float numberPeopleMore50p = doPercentageAnalysis(3, ages);
 
-    System.out.println(
+    System.out.println("\n----- Quantidade -----");
+    System.out.print("menores: ");
+    System.out.println(numberPeopleLess18);
+    System.out.print("adultas: ");
+    System.out.println(adultPeople);
+    System.out.print("a partir de 50: ");
+    System.out.println(numberPeopleMore50);
+    System.out.println("\n----- Percentual -----");
+    System.out.print("menores: ");
+    System.out.println(numberPeopleLess18p);
+    System.out.print("adultas: ");
+    System.out.println(adultPeoplep);
+    System.out.print("a partir de 50: ");
+    System.out.println(numberPeopleMore50p);
+
+    /* System.out.println(
       "\n----- Quantidade -----\n" 
       + "menores: " 
       + numberPeopleLess18 
@@ -77,7 +92,7 @@ public class Principal {
       + "\nTOTAL: " 
       + ages.size()
       + "%"
-    );
+    ); */
   }
 
   static int doQuantitativeAnalysis(int param, ArrayList<Short> ages) {
