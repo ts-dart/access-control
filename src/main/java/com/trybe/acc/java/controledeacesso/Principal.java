@@ -19,11 +19,9 @@ public class Principal {
     short respCode = 0;
 
     do {
-      System.out.println(
-        "Entre com o número correspondente à opção desejada:\n" 
-        + "1 - Acessar o estabelecimento\n" 
-        + "2 - Finalizar sistema e mostrar relatório\n"
-      );
+      System.out.println("Entre com o número correspondente à opção desejada:");
+      System.out.println("1 - Acessar o estabelecimento" );
+      System.out.println("2 - Finalizar sistema e mostrar relatório");
       respCode = scanner.nextByte();
 
       if (respCode == 1) {
